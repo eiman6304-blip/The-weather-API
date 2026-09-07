@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Now</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="top-header">
+    <div class="logo">
+      <img src="assets/images/logo.svg" alt="Logo">
+    </div>
+
+    <select id="unitSelect" class="unit-select">
+      <option value="metric">Units</option>
+      <option value="metric">Metric</option>
+      <option value="imperial">Imperial</option>
+    </select>
+  </header>
+<!-- Error Page -->
+<section id="errorPage" class="error-page">
+
+  <div class="error-icon">
+    🚫
+  </div>
+
+  <h1>Something went wrong</h1>
+
+  <p>
+    We couldn’t connect to the server (API error).
+    Please try again in a few moments.
+  </p>
+
+  <button id="retryBtn" class="retry-btn">
+    ↻ Retry
+  </button>
+
+</section>
+  <main class="container">
+
+    <h1>How’s the sky looking today?</h1>
+
+    <form id="searchForm" class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        class="search-input"
+        placeholder="⌕ Search for a place..."
+      >
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+
+    <p id="errorMessage" class="error-message"></p>
+
+    <section class="dashboard">
+
+      <div class="left-column">
+
+        <!-- الطقس الحالي -->
+        <div class="current-weather">
+          <div>
+            <h2 id="cityName">Berlin, Germany</h2>
+            <p id="currentDate">Today</p>
+          </div>
+
+          <div class="main-temperature">
+            <span id="currentIcon">☀️</span>
+            <strong id="currentTemperature">20°</strong>
+          </div>
+        </div>
+
+        <!-- تفاصيل الطقس -->
+        <div class="weather-details">
+          <div class="detail-card">
+            <small>Feels like</small>
+            <strong id="feelsLike">--</strong>
+          </div>
+
+          <div class="detail-card">
+            <small>Humidity</small>
+            <strong id="humidity">--</strong>
+          </div>
+
+          <div class="detail-card">
+            <small>Wind</small>
+            <strong id="wind">--</strong>
+          </div>
+
+          <div class="detail-card">
+            <small>Precipitation</small>
+            <strong id="rain">--</strong>
+          </div>
+        </div>
+
+        <!-- التوقعات اليومية -->
+        <h3>Daily forecast</h3>
+
+        <!-- الحاوية الموحدة للـ 7 أيام بحيث تصطف بنفس عرض بوكسات التفاصيل -->
+        <div class="forecast-container" id="dailyForecast">
+          <div class="forecast-card">
+            <span class="forecast-day">Tue</span>
+            <span class="forecast-icon">☁️</span>
+            <div class="forecast-temps"><span class="max-temp">68°</span><span class="min-temp">57°</span></div>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Wed</span>
+            <span class="forecast-icon">☁️</span>
+            <div class="forecast-temps"><span class="max-temp">70°</span><span class="min-temp">59°</span></div>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Thu</span>
+            <span class="forecast-icon">☀️</span>
+            <div class="forecast-temps"><span class="max-temp">75°</span><span class="min-temp">57°</span></div>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Fri</span>
+            <span class="forecast-icon">🌤️</span>
+            <div class="forecast-temps"><span class="max-temp">77°</span><span class="min-temp">55°</span></div>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Sat</span>
+            <span class="forecast-icon">⛈️</span>
+            <div class="forecast-temps"><span class="max-temp">70°</span><span class="min-temp">59°</span></div>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Sun</span>
+            <span class="forecast-icon">🌨️</span>
+            <div class="forecast-temps"><span class="max-temp">77°</span><span class="min-temp">61°</span></div>
+          </div>
+          <div class="forecast-card">
+            <span class="forecast-day">Mon</span>
+            <span class="forecast-icon">🌫️</span>
+            <div class="forecast-temps"><span class="max-temp">75°</span><span class="min-temp">59°</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- التوقعات بالساعة -->
+      <aside class="hourly-card">
+        <div class="hourly-header">
+          <h3>Hourly forecast</h3>
+          <select id="daySelect">
+            <option value="0">Today</option>
+            <option value="1">Tomorrow</option>
+            <option value="2">Wednesday</option>
+          </select>
+        </div>
+
+        <div id="hourlyForecast" class="hourly-forecast">
+          <!-- JavaScript سيضيف بطاقات الساعات هنا -->
+        </div>
+      </aside>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
